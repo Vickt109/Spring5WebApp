@@ -45,5 +45,8 @@ public class BootStrapData implements CommandLineRunner {
         bookRepository.save(metarmorf);
         bookRepository.save(revGranj);
 
+        System.out.println("Started in BootStrap");
+        System.out.println("Libros Almacenados: " + bookRepository.count());
+
     }
 }
