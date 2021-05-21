@@ -69,4 +69,14 @@ public class Book {
     public int hashCode() {
         return Objects.hash(bookId);
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookId=" + bookId +
+                ", title='" + title + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", authors=" + authors +
+                '}';
+    }
 }
