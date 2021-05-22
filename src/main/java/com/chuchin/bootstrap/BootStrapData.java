@@ -34,24 +34,31 @@ public class BootStrapData implements CommandLineRunner {
 
         Publisher oreilley = new Publisher("O'reilley","NYC wst 450.","NYC","NY","ABC740");
 
+        oreilley.getBooks().add(viajeSub);
+        oreilley.getBooks().add(metarmorf);
+        oreilley.getBooks().add(revGranj);
+        publisherRepository.save(oreilley);
+
         julioV.getBooks().add(viajeSub);
         viajeSub.getAuthors().add(julioV);
+        viajeSub.setPublisher(oreilley);
+        authorRepository.save(julioV);
 
         franzK.getBooks().add(metarmorf);
         metarmorf.getAuthors().add(franzK);
+        metarmorf.setPublisher(oreilley);
+        authorRepository.save(franzK);
 
         georgeO.getBooks().add(revGranj);
         revGranj.getAuthors().add(georgeO);
-
-        authorRepository.save(julioV);
-        authorRepository.save(franzK);
+        revGranj.setPublisher(oreilley);
         authorRepository.save(georgeO);
+
+
 
         bookRepository.save(viajeSub);
         bookRepository.save(metarmorf);
         bookRepository.save(revGranj);
-
-        publisherRepository.save(oreilley);
 
         System.out.println("Started in BootStrap");
         System.out.println("Libros Almacenados: " + bookRepository.count());
